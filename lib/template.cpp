@@ -28,7 +28,7 @@ typedef complex<double> cplx;
 const double pi = 2*acos(0);
 const double tau = 2.0*pi;
 
-#define oo        0x3f3f3f3f3f3f3f3fL
+#define oo        0x3f3f3f3f3f3f3f3fLL
 #define MAXLOGN   25
 #define MAX_PRIME 50000
 #define MOD       1000000007
