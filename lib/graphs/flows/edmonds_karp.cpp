@@ -35,8 +35,10 @@ const double tau = 2.0*pi;
 #define MAXN      200005
 // END template
 
-// G must be a simple digraph with non-negative capacities
-ll edmonds_karp(const vector<vector<pair<int,ll>>>& G_, int s, int t) {
+// G: flow network
+// s: source
+// t: sink
+ll edmonds_karp(const vector<vector<pair<int,ll>>>& G, int s, int t) {
   struct edge {
     ll fw,bw;
     edge() : fw(0), bw(0) {}
@@ -48,28 +50,24 @@ ll edmonds_karp(const vector<vector<pair<int,ll>>>& G_, int s, int t) {
       return u < v ? fw : bw;
     }
   };
-  // init residues
-  int n = G_.size();
-  vector<map<int,int>> G(n);
-  vector<edge> E;
-  rp(u,0,n-1) for (auto& e : G_[u]) {
+  // residual network
+  int n = G.size();
+  vector<vector<ii>> Gf(n); // adjacencies
+  vector<edge> Ef; // capacities
+  rp(u,0,n-1) for (auto& e : G[u]) {
     int v = e.ff;
     ll c = e.ss;
-    int idx;
-    if (G[u].count(v)) idx = G[u][v];
-    else {
-      idx = E.size(); E.eb();
-      G[u][v] = idx;
-      G[v][u] = idx;
-    }
-    E[idx].add(u,v,c);
+    int idx = Ef.size(); Ef.eb();
+    Gf[u].eb(v,idx);
+    Gf[v].eb(u,idx);
+    Ef[idx].add(u,v,c);
   }
   // augmentation
   vector<ii> parent(n);
   function<ll(int,ll)> augment = [&](int v, ll f) {
     if (v == s) return f;
     int u = parent[v].ff;
-    auto& e = E[parent[v].ss];
+    auto& e = Ef[parent[v].ss];
     f = augment(u,min(f,e.query(u,v)));
     e.add(u,v,-f);
     e.add(v,u, f);
@@ -90,22 +88,25 @@ ll edmonds_karp(const vector<vector<pair<int,ll>>>& G_, int s, int t) {
   auto Qempty = [&]() {
     return kewl == kewr;
   };
+  // relaxation
+  vi mark(n,0); int pass = 1;
+  auto relax = [&](int u, int v, int idx) {
+    mark[v] = pass;
+    parent[v] = ii(u,idx);
+    Qpush(v);
+  };
   // BFS loop
   ll maxflow = 0;
-  for (ll f = 1; f;) {
+  for (ll f = 1; f > 0; pass++) {
     f = 0;
-    memset(&parent[0],-1,n*sizeof(ii));
     Qclear();
-    parent[s] = ii(s,-1);
-    Qpush(s);
+    relax(s,s,-1);
     while (!Qempty()) {
       int u = Qpop();
       if (u == t) { f = augment(t,oo); break; }
-      for (auto& e_ : G[u]) {
-        int v = e_.ff, idx = e_.ss;
-        if (parent[v].ff >= 0 || E[idx].query(u,v) == 0) continue;
-        parent[v] = ii(u,idx);
-        Qpush(v);
+      for (auto& e : Gf[u]) {
+        int v = e.ff, idx = e.ss;
+        if (mark[v] < pass && Ef[idx].query(u,v) > 0) relax(u,v,idx);
       }
     }
     maxflow += f;
