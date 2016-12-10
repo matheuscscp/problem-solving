@@ -40,14 +40,15 @@ const double tau = 2.0*pi;
 // t: sink
 ll edmonds_karp(const vector<vector<pair<int,ll>>>& G, int s, int t) {
   struct edge {
+    int v;
     ll fw,bw;
-    edge() : fw(0), bw(0) {}
+    edge(int u, int v, ll c) : v(v), fw(c), bw(0) {}
     void add(int u, int v, ll d) {
-      if (u < v) fw += d;
+      if (v == this->v) fw += d;
       else bw += d;
     }
-    ll query(int u, int v) const {
-      return u < v ? fw : bw;
+    ll c(int u, int v) const {
+      return v == this->v ? fw : bw;
     }
   };
   // residual network
@@ -57,10 +58,9 @@ ll edmonds_karp(const vector<vector<pair<int,ll>>>& G, int s, int t) {
   rp(u,0,n-1) for (auto& e : G[u]) {
     int v = e.ff;
     ll c = e.ss;
-    int idx = Ef.size(); Ef.eb();
+    int idx = Ef.size(); Ef.eb(u,v,c);
     Gf[u].eb(v,idx);
     Gf[v].eb(u,idx);
-    Ef[idx].add(u,v,c);
   }
   // augmentation
   vector<ii> parent(n);
@@ -68,7 +68,7 @@ ll edmonds_karp(const vector<vector<pair<int,ll>>>& G, int s, int t) {
     if (v == s) return f;
     int u = parent[v].ff;
     auto& e = Ef[parent[v].ss];
-    f = augment(u,min(f,e.query(u,v)));
+    f = augment(u,min(f,e.c(u,v)));
     e.add(u,v,-f);
     e.add(v,u, f);
     return f;
@@ -106,7 +106,7 @@ ll edmonds_karp(const vector<vector<pair<int,ll>>>& G, int s, int t) {
       if (u == t) { f = augment(t,oo); break; }
       for (auto& e : Gf[u]) {
         int v = e.ff, idx = e.ss;
-        if (mark[v] < pass && Ef[idx].query(u,v) > 0) relax(u,v,idx);
+        if (mark[v] < pass && Ef[idx].c(u,v) > 0) relax(u,v,idx);
       }
     }
     maxflow += f;
