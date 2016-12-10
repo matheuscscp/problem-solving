@@ -38,14 +38,21 @@ const double tau = 2.0*pi;
 // G: flow network
 // s: source
 // t: sink
-ll edmonds_karp(const vector<vector<pair<int,ll>>>& G, int s, int t) {
-  struct edge {
+struct edge {
+  int v;
+  ll c,f;
+  edge(int v, ll c) : v(v), c(c), f(0) {}
+};
+ll edmonds_karp(vector<vector<edge>>& G, int s, int t) {
+  struct resedge {
     int v;
     ll fw,bw;
-    edge(int u, int v, ll c) : v(v), fw(c), bw(0) {}
+    edge* e;
+    resedge(int u, int v, ll c, edge* e) : v(v), fw(c), bw(0), e(e) {}
     void add(int u, int v, ll d) {
       if (v == this->v) fw += d;
       else bw += d;
+      e->f = e->c - fw;
     }
     ll c(int u, int v) const {
       return v == this->v ? fw : bw;
@@ -54,11 +61,11 @@ ll edmonds_karp(const vector<vector<pair<int,ll>>>& G, int s, int t) {
   // residual network
   int n = G.size();
   vector<vector<ii>> Gf(n); // adjacencies
-  vector<edge> Ef; // capacities
+  vector<resedge> Ef; // capacities
   rp(u,0,n-1) for (auto& e : G[u]) {
-    int v = e.ff;
-    ll c = e.ss;
-    int idx = Ef.size(); Ef.eb(u,v,c);
+    int v = e.v;
+    ll c = e.c;
+    int idx = Ef.size(); Ef.eb(u,v,c,&e);
     Gf[u].eb(v,idx);
     Gf[v].eb(u,idx);
   }
