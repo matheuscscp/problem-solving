@@ -8,6 +8,7 @@ using namespace std;
 #define mt make_tuple
 #define pb push_back
 #define eb emplace_back
+#define pq priority_queue
 
 #ifdef ONLINE_JUDGE
   #define FASTIO    std::ios::sync_with_stdio(false)
