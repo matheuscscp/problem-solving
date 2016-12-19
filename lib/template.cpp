@@ -27,7 +27,7 @@ using namespace std;
 #define flush       fflush(stdout)
 #define lg(X)       (63 - __builtin_clzll(X))
 #define flr(i,L,R)  for (int i = L, __R = R; i <= __R; i++)
-#define frl(i,L,R)  for (int i = R, __L = L; __L <= i; i--)
+#define frl(i,R,L)  for (int i = R, __L = L; __L <= i; i--)
 
 typedef long long ll;
 typedef pair<int,int> ii;
