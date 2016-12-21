@@ -26,8 +26,8 @@ using namespace std;
 #define scs(X)      scanf("%s",X)
 #define flush       fflush(stdout)
 #define lg(X)       (63 - __builtin_clzll(X))
-#define flr(i,L,R)  for (int i = L, __R = R; i <= __R; i++)
-#define frl(i,R,L)  for (int i = R, __L = L; __L <= i; i--)
+#define  rp(i,L,R)  for (int i = L, __R = R; i <= __R; i++)
+#define rpd(i,R,L)  for (int i = R, __L = L; __L <= i; i--)
 
 typedef long long ll;
 typedef pair<int,int> ii;
@@ -37,7 +37,7 @@ typedef vector<bool> vb;
 #define oo        0x3f3f3f3f3f3f3f3fLL
 #define MAXLOGN   25
 #define MOD       1000000007
-#define MAXN      200005
+#define MAXN      100005
 // END template
 
 int main() {
