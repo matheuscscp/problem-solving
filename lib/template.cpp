@@ -36,8 +36,8 @@ typedef   vector<bool>  vb;
 
 #define   oo            0x3f3f3f3f3f3f3f3fLL
 #define   MAXLOGN       25
-#define   MOD           1000000007
-#define   MAXN          200005
+#define   MOD           int(1e9+7)
+#define   MAXN          int(2e5+5)
 // END template
 
 int main() {
