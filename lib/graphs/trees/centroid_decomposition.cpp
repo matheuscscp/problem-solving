@@ -13,7 +13,7 @@ vector<int> C[MAXN];
 // centroid tree parents (pnt[root] == 0)
 int pnt[MAXN];
 
-// vertex levels in centroid tree (lvl[root] == 0)
+// centroid tree levels (lvl[root] == 0)
 int lvl[MAXN];
 
 // call centroid(arbitrary root). returns the root of the centroid tree
