@@ -51,7 +51,7 @@ void dfs(int r, int u = 0, int p = 0, int d = 0) {
   dist[u][lvl[r]] = d;
   for (int v : T[u]) if (!vis[v] && v != p) dfs(r,v,u,d+1/*w(u,v)*/);
   if (p) return;
-  // remove centroid
+  // remove centroid and dfs next level
   vis[r] = true;
   for (int v : C[r]) dfs(v);
 }
