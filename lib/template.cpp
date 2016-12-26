@@ -26,6 +26,7 @@ using namespace std;
 #define   scs(X)        scanf("%s",X)
 #define   flush         fflush(stdout)
 #define   lg(X)         (63 - __builtin_clzll(X))
+#define   LG(X)         (lg(X)+((1<<lg(X)) < (X)))
 #define    rp(i,L,R)    for (int i = L, __R = R; i <= __R; i++)
 #define   rpd(i,R,L)    for (int i = R, __L = L; __L <= i; i--)
 
@@ -37,7 +38,7 @@ typedef   vector<bool>  vb;
 #define   oo            0x3f3f3f3f3f3f3f3fLL
 #define   MAXLOGN       25
 #define   MOD           int(1e9+7)
-#define   MAXN          int(2e5+5)
+#define   MAXN          int(1e5+5)
 // END template
 
 int main() {
