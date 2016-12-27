@@ -13,11 +13,11 @@ vector<int> C[MAXN];
 // centroid tree parents (pnt[root] == 0)
 int pnt[MAXN];
 
-// centroid tree levels (lvl[root] == 0)
-int lvl[MAXN];
+// centroid tree depths (dep[root] == 0)
+int dep[MAXN];
 
 // call centroid(arbitrary root). returns the root of the centroid tree
-int centroid(int u = 1, int p = 0, int lv = 0) {
+int centroid(int u = 1, int p = 0, int dp = 0) {
   static int tot[MAXN], maxc[MAXN];
   static bool vis[MAXN];
   // dfs
@@ -33,9 +33,9 @@ int centroid(int u = 1, int p = 0, int lv = 0) {
   int r = u, half = tot[u]>>1;
   while (half && tot[maxc[r]] > half) r = maxc[r];
   vis[r] = true;
-  lvl[r] = lv;
+  dep[r] = dp;
   for (int v : T[r]) if (!vis[v]) {
-    int c = centroid(v,0,lv+1);
+    int c = centroid(v,0,dp+1);
     C[r].push_back(c);
     pnt[c] = r;
   }
@@ -48,7 +48,7 @@ void dfs(int r, int u = 0, int p = 0, int d = 0) {
   static bool vis[MAXN];
   // dfs
   if (!u) u = r;
-  dist[u][lvl[r]] = d;
+  dist[u][dep[r]] = d;
   for (int v : T[u]) if (!vis[v] && v != p) dfs(r,v,u,d+1/*w(u,v)*/);
   if (p) return;
   // remove centroid and dfs next level
