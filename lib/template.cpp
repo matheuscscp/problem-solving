@@ -12,6 +12,7 @@ using namespace std;
 #define   pb            push_back
 #define   eb            emplace_back
 #define   pq            priority_queue
+#define   pqmin(X)      priority_queue<X,vector<X>,greater<X>>
 
 #ifdef ONLINE_JUDGE
   #define fastio        std::ios::sync_with_stdio(false)
@@ -65,7 +66,7 @@ typedef   vector<bool>  vb;
 #define   oo            0x3f3f3f3f3f3f3f3fLL
 #define   MAXLOGN       25
 #define   MOD           int(1e9+7)
-#define   MAXN          int(2e5+5)
+#define   MAXN          int(3e5+5)
 // END template
 
 int main() {
