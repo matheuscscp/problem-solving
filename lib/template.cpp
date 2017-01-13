@@ -23,7 +23,7 @@ using namespace std;
   #define dbg(X)        cerr << ">>> (" << #X << ") = (" << X << ")\n"
   #define _             << " _ " <<
 #endif
-#define   sci(X)        scanf("%d",&(X))
+#define   sci1(X)       scanf("%d",&(X))
 #define   sci2(X,Y)     scanf("%d%d",&(X),&(Y))
 #define   sci3(X,Y,Z)   scanf("%d%d%d",&(X),&(Y),&(Z))
 #define   scl(X)        scanf("%lld",&(X))
@@ -33,6 +33,9 @@ using namespace std;
 #define   LG(X)         (lg(X)+((1<<lg(X)) < (X)))
 #define    rp(i,L,R)    for (int i = L, __R = R; i <= __R; i++)
 #define   rpd(i,R,L)    for (int i = R, __L = L; __L <= i; i--)
+
+#define GET_SCI(_1,_2,_3,NAME,...) NAME
+#define sci(...) GET_SCI(__VA_ARGS__,sci3,sci2,sci1)(__VA_ARGS__)
 
 #define DP1(type,X)\
   static type dp[X];\
@@ -66,7 +69,7 @@ typedef   vector<bool>  vb;
 #define   oo            0x3f3f3f3f3f3f3f3fLL
 #define   MAXLOGN       25
 #define   MOD           int(1e9+7)
-#define   MAXN          int(3e5+5)
+#define   MAXN          int(1e6+5)
 // END template
 
 int main() {
