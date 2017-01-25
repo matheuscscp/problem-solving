@@ -7,12 +7,12 @@ using namespace std;
 // BEGIN template
 #define   ff            first
 #define   ss            second
-#define   mp            make_pair
-#define   mt            make_tuple
 #define   pb            push_back
 #define   eb            emplace_back
+#define   em            emplace
 #define   pq            priority_queue
 #define   pqmin(X)      priority_queue<X,vector<X>,greater<X>>
+#define   all(X)        (X).begin(),(X).end()
 
 #ifdef ONLINE_JUDGE
   #define fastio        std::ios::sync_with_stdio(false)
@@ -67,11 +67,12 @@ typedef   vector<int>   vi;
 typedef   vector<bool>  vb;
 
 #define   oo            0x3f3f3f3f3f3f3f3fLL
-#define   MAXLOGN       25
+#define   LGN           25
 #define   MOD           int(1e9+7)
-#define   MAXN          int(1e6+5)
+#define   N             int(1e5+5)
 // END template
 
 int main() {
+  
   return 0;
 }
