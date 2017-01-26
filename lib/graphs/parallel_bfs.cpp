@@ -88,7 +88,7 @@ void add(int u, int v) {
 void remove(int u, int v) {
   off[idx[ii(u,v)]] = true;
 }
-int edge(int e) {
+int edge(int e) { // meta-path compression
   if (!e || !off[e]) return e;
   return nxt[e] = edge(nxt[e]);
 }
