@@ -76,8 +76,7 @@ ll g(ll x) {
     // subtract one occurrence of s[i]
     state = sub(si,state);
   }
-  // if we reached this point, then x itself satisfies the properties
-  ans++;
+  ans++; // if we reached this point, then x itself satisfies the properties
   return ans;
 }
 
