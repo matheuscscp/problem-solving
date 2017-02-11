@@ -8,7 +8,7 @@ vector<int> prefix_function(const string& s) {
     int u = q+1;
     p[u] = p[q]; // start with parent failure
     while (p[u] && s[p[u]] != s[q]) p[u] = p[p[u]]; // go through failure links
-    p[u] = p[u] ? p[u]+1 : (s[0]==s[q]); // final failure goes through the edge
+    if (s[p[u]] == s[q]) p[u]++; // final failure goes through the edge
   }
   return p;
 }
@@ -19,7 +19,7 @@ void kmp(const string& p, const string& t, const function<void(int)>& outfunc) {
   int q = 0, len = 0;
   for (const char* s = t.c_str(); *s; s++) {
     while (q && p[q] != *s) q = pf[q]; // go through failure links
-    q = q ? q+1 : (p[0]==*s); // final failure goes through the edge
+    if (p[q] == *s) q++; // final failure goes through the edge
     len++;
     if (q == n) outfunc(len-n);
   }
