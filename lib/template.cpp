@@ -66,10 +66,10 @@ typedef   pair<int,int> ii;
 typedef   vector<int>   vi;
 typedef   vector<bool>  vb;
 
-#define   oo            0x3f3f3f3f3f3f3f3fLL
-#define   LGN           25
-#define   MOD           int(1e9+7)
-#define   N             int(1e3+5)
+const ll  oo =          0x3f3f3f3f3f3f3f3fll;
+const int LGN =         25;
+const int MOD =         1e9+7;
+const int N =           1e3+5;
 // END template
 
 int main() {
