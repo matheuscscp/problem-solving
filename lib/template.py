@@ -1,18 +1,25 @@
 #!/usr/bin/python3
 
+# ==============================================================================
 # BEGIN template
+# ==============================================================================
 import sys
+import time
 import re
 import pprint
 
-def dbg(x,y=''):
-  if len(y) > 0: y += ' = '
-  sys.stderr.write('\n>>> '+y+pprint.pformat(x)+'\n')
+def dbg(x,y=None):
+  if y is None: dbgout = pprint.pformat(x)
+  else: dbgout = x+' = '+pprint.pformat(y)
+  sys.stderr.write('>>> '+dbgout+'\n')
+  sys.stderr.flush()
 
 oo = 0x3f3f3f3f3f3f3f3f
+# ==============================================================================
 # END template
+# ==============================================================================
 
 def main():
-  
+  dbg('hello python')
 
 main()
