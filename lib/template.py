@@ -7,6 +7,7 @@ import sys
 import time
 import re
 import pprint
+import random
 
 def dbg(x,y=None):
   if y is None: dbgout = pprint.pformat(x)
