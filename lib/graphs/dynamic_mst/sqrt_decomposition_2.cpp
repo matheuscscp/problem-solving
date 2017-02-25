@@ -10,12 +10,7 @@ const int N = 4e4+5;
 int n,m,u[N],v[N],w[N],e[N],c[N];
 
 // set comparison
-struct cmp {
-  bool operator()(int i, int j) {
-    if (w[i] != w[j]) return w[i] < w[j];
-    return i < j;
-  }
-};
+struct cmp {bool operator()(int i, int j) { return w[i]!=w[j]?w[i]<w[j]:i<j; }};
 typedef set<int,cmp> edgeset;
 
 // lazy flag
