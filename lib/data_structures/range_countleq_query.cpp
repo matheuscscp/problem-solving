@@ -14,9 +14,9 @@ const int M = 2e3;
 int a[N];
 
 struct bit {
-  int ft[N];
+  int ft[N+5];
   void add(int i, int x) {
-    for (; i < N; i += i&-i) ft[i] += x;
+    for (; i <= N; i += i&-i) ft[i] += x;
   }
   int query(int i) {
     int ans = 0; for (; i > 0; i -= i&-i) ans += ft[i]; return ans;
