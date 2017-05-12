@@ -2,7 +2,8 @@
 using namespace std;
 
 // BIT to find number of elements <= x in range [l, r] supporting updates.
-// all elements a[i] must be such that 1 <= a[i] <= N (compress if necessary!)
+// all elements a[i] must be such that 1 <= a[i] <= N (but you can always
+// compress the input numbers, if necessary!)
 
 // maximum number of different elements
 const int N = 2e5+5;
