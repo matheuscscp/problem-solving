@@ -28,6 +28,7 @@ using namespace std;
 #define   scl(X)        scanf("%lld",&(X))
 #define   scs(X)        scanf("%s",X)
 #define   flush         fflush(stdout)
+#define   pc(X)         __builtin_popcountll(X)
 #define   lg(X)         (63 - __builtin_clzll(X))
 #define   LG(X)         (lg(X)+((1<<lg(X)) < (X)))
 #define    rp(i,L,R)    for (ll i = L, __R = R; i <= __R; i++)
