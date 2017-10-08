@@ -66,12 +66,13 @@ typedef   pair<int,int> ii;
 typedef   vector<int>   vi;
 typedef   vector<bool>  vb;
 typedef   set<int>      si;
+typedef   map<int,int>  mii;
 
 // constants
 const ll  oo =          0x3f3f3f3f3f3f3f3fll;
 const int LGN =         25;
 const int MOD =         1e9+7;
-const int N =           2e5+5;
+const int N =           1e2+5;
 // =============================================================================
 // END template
 // =============================================================================
