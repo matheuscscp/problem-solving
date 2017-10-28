@@ -39,6 +39,12 @@ func min(x, y int64) int64 {
   }
   return y
 }
+
+// constants
+const oo int64  = 0x3f3f3f3f3f3f3f3f
+const LGN int   = 25
+const MOD int   = 1e9+7
+const N int     = 3e5+5
 // =============================================================================
 // END template
 // =============================================================================
