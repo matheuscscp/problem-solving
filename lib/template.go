@@ -1,19 +1,15 @@
 package main
 
+// =============================================================================
+// BEGIN template
+// =============================================================================
 import (
   "fmt"
   "bufio"
   "os"
 )
 
-func min(x, y int64) int64 {
-  if x < y {
-    return x
-  }
-  return y
-}
-
-// io functions
+// io
 var stdin *bufio.Reader
 var stdout *bufio.Writer
 func fastio() {
@@ -35,6 +31,17 @@ func dbg(x ...interface{}) {
   }
   fmt.Fprintln(os.Stderr)
 }
+
+// helpers
+func min(x, y int64) int64 {
+  if x < y {
+    return x
+  }
+  return y
+}
+// =============================================================================
+// END template
+// =============================================================================
 
 func main() {
   fastio()
