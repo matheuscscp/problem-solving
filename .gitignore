@@ -1,6 +1,4 @@
-main.cpp
-main.py
-Makefile
+main.*
 a.out*
 input.txt
 output.txt
