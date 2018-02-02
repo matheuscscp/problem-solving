@@ -5,34 +5,45 @@ using namespace std;
 // BEGIN template
 // =============================================================================
 #ifdef ONLINE_JUDGE
-  #define fastio        std::ios::sync_with_stdio(false)
+  #define fastio            std::ios::sync_with_stdio(false)
   #define dbg(X)
-  #define _             _
+  #define _                 _
 #else
   #include <unistd.h>
   #define fastio
-  #define dbg(X)        cerr << ">>> (" << #X << ") = (" << X << ")\n"
-  #define _             << " _ " <<
+  #define dbg(X)            cerr << ">>> (" << #X << ") = (" << X << ")\n"
+  #define _                 << " _ " <<
 #endif
-#define   ff            first
-#define   ss            second
-#define   pb            push_back
-#define   eb            emplace_back
-#define   em            emplace
-#define   pq            priority_queue
-#define   pqmin(X)      priority_queue<X,vector<X>,greater<X>>
-#define   all(X)        (X).begin(),(X).end()
-#define   sci1(X)       scanf("%d",&(X))
-#define   sci2(X,Y)     scanf("%d%d",&(X),&(Y))
-#define   sci3(X,Y,Z)   scanf("%d%d%d",&(X),&(Y),&(Z))
-#define   scl(X)        scanf("%lld",&(X))
-#define   scs(X)        scanf("%s",X)
-#define   flush         fflush(stdout)
-#define   pc(X)         __builtin_popcountll(X)
-#define   lg(X)         (63 - __builtin_clzll(X))
-#define   LG(X)         (lg(X)+((1<<lg(X)) < (X)))
-#define    rp(i,L,R)    for (ll i = L, __R = R; i <= __R; i++)
-#define   rpd(i,R,L)    for (ll i = R, __L = L; __L <= i; i--)
+#define   ff                first
+#define   ss                second
+#define   pb                push_back
+#define   eb                emplace_back
+#define   em                emplace
+#define   pq                priority_queue
+#define   M                 ((L+R)>>1)
+#define   pqmin(X)          priority_queue<X,vector<X>,greater<X>>
+#define   all(X)            (X).begin(),(X).end()
+#define   sci1(X)           scanf("%d",&(X))
+#define   sci2(X,Y)         scanf("%d%d",&(X),&(Y))
+#define   sci3(X,Y,Z)       scanf("%d%d%d",&(X),&(Y),&(Z))
+#define   scl(X)            scanf("%lld",&(X))
+#define   scs(X)            scanf("%s",X)
+#define   flush             fflush(stdout)
+#define   pc(X)             __builtin_popcountll(X)
+#define   lg(X)             (63 - __builtin_clzll(X))
+#define   LG(X)             (lg(X)+((1<<lg(X)) < (X)))
+#define   rp(i,FIRST,LAST)  for (ll i = (FIRST), _L = (LAST), _inc = ((FIRST) > (LAST) ? -1 : 1); i != _L + _inc; i += _inc)
+
+// functions
+void reopen(const string& name) {
+#ifdef ONLINE_JUDGE
+  char fn[256];
+  sprintf(fn,"%s.in",name.c_str());
+  freopen(fn,"r",stdin);
+  sprintf(fn,"%s.out",name.c_str());
+  freopen(fn,"w",stdout);
+#endif
+}
 
 // dps
 #define DP1(type,X)\
@@ -66,13 +77,13 @@ typedef   pair<int,int> ii;
 typedef   vector<int>   vi;
 typedef   vector<bool>  vb;
 typedef   set<int>      si;
-typedef   map<int,int>  mii;
 
 // constants
 const ll  oo =          0x3f3f3f3f3f3f3f3fll;
 const int LGN =         25;
 const int MOD =         1e9+7;
-const int N =           1e2+5;
+const int N =           3e5+5;
+const int NLGN =        N*LGN;
 // =============================================================================
 // END template
 // =============================================================================
@@ -82,3 +93,32 @@ int main() {
   
   return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// prevent atom from erasing the empty lines in the end of the file
