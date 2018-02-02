@@ -1,4 +1,12 @@
 
+#define M ((L+R)>>1)
+
+typedef long long ll;
+
+const int N =     1e5+5;
+const int LGN =   25;
+const int NLGN =  N*LGN;
+
 int root[N],lef[4*NLGN],rig[4*NLGN],nodes=0;
 ll st[4*NLGN],lz[4*NLGN];
 
