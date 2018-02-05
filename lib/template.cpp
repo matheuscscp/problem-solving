@@ -32,7 +32,8 @@ using namespace std;
 #define   pc(X)             __builtin_popcountll(X)
 #define   lg(X)             (63 - __builtin_clzll(X))
 #define   LG(X)             (lg(X)+((1<<lg(X)) < (X)))
-#define   rp(i,FIRST,LAST)  for (ll i = (FIRST), _L = (LAST), _inc = ((FIRST) > (LAST) ? -1 : 1); i != _L + _inc; i += _inc)
+#define    rp(i,L,R)        for (ll i = L, __R = R; i <= __R; i++)
+#define   rpd(i,R,L)        for (ll i = R, __L = L; __L <= i; i--)
 
 // functions
 void reopen(const string& name) {
@@ -82,7 +83,7 @@ typedef   set<int>      si;
 const ll  oo =          0x3f3f3f3f3f3f3f3fll;
 const int LGN =         25;
 const int MOD =         1e9+7;
-const int N =           3e5+5;
+const int N =           2e5+5;
 const int NLGN =        N*LGN;
 // =============================================================================
 // END template
@@ -121,4 +122,4 @@ int main() {
 
 
 
-// prevent atom from erasing the empty lines in the end of the file
+// eof
