@@ -47,7 +47,6 @@ struct trie {
         Q.push(u);
         // find failure link
         int f = nodes[q].f; // start with parent failure
-        while (f && !nodes[f].adj[a]) f = nodes[f].f; // go through the links
         f = nodes[f].adj[a]; // final failure goes through the edge
         // set links
         nodes[u].f = f;                                   // failure link
