@@ -1,5 +1,5 @@
 all:
-	g++ -g -std=c++11 -pedantic -Wall -Wextra main.cpp
+	g++ -g -std=c++11 -pedantic -Wall -Wextra -Wno-unused-const-variable -Wno-unused-parameter main.cpp
 	./a.out < input.txt
 
 diff:
