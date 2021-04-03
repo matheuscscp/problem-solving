@@ -1,2 +1,2 @@
 # problem-solving
-Problem solving library.
+Problem solving library for competitive programming.
